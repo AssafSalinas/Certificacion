@@ -8,13 +8,10 @@ public class Conexion { // Creacion de la clase Conexion
 	private static final String user="root";
 	private static final String password="";
 	public Connection conectar() {
-				// TODO Auto-generated method stub
-		Connection Conexion=null;
-		try {	// Generar la condicion del try catch
+				try {	// Generar la condicion del try catch
 			
 			Class.forName(controlador); //Hacer la conexion con el driver
-			// Es un conjunto de controladores para las bases de datos
-			Conexion=DriverManager.getConnection(url,user,password); 
+			DriverManager.getConnection(url,user,password); 
 			// Conexion con nuestra base de datos donde se concatena el url, el usuario y la 			contraseña
 			System.out.println("Conexion exitosa"); 
 			// Imprimir en consola el estado de la conexion si esta bien 
