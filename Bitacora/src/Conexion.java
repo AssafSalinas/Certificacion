@@ -12,7 +12,7 @@ public class Conexion { // Creacion de la clase Conexion
 			
 			Class.forName(controlador); //Hacer la conexion con el driver 
 			// Conexion con nuestra base de datos donde se concatena el url, el usuario y la contraseña
-			System.out.println("Conexion exitosa"); 
+			System.out.println("El controlador se cargo exitosamente"); 
 			// Imprimir en consola el estado de la conexion si esta bien 
 			
 		}
@@ -34,7 +34,7 @@ public class Conexion { // Creacion de la clase Conexion
 			
 			conexion = DriverManager.getConnection(url,user,password); 
 			// Conexion con nuestra base de datos donde se concatena el url, el usuario y la contraseña
-			System.out.println("Conexion exitosa"); 
+			System.out.println("Conexion exitosa con la base de datos"); 
 			// Imprimir en consola el estado de la conexion si esta bien 
 			
 		}
