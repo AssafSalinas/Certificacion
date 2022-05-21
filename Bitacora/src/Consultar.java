@@ -1,10 +1,43 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Consultar {
 
 	public static void main(String[] args) {
+			
+			Conexion con = new Conexion();
+			Connection cn = null;
+			Statement stm=null;
+			ResultSet rs = null;
+			
+		try {
+			
+			cn = con.conectar();
+			stm = cn.createStatement();
+			rs = stm.executeQuery("Select * from registro");
+			
+			while (rs.next()) {
+				
+				int No = rs.getInt(1);
+				String No_control = rs.getString(2);
+				String Nombre = rs.getString(3);
+				String Hora_Entrada = rs.getString(4);
+				String Hora_salida = rs.getString(5);
+				String Fecha = rs.getString(6);
+				
+				System.out.println(No + " "+ No_control+ " "+Nombre+" "+Hora_Entrada+" "+Hora_salida+" "+Fecha);
 
-		Conexion consulta = new Conexion();
-		consulta.conectar();
+			}
+			
+		} 
+		catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
 	}
 
 }
