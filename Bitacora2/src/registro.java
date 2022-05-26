@@ -7,6 +7,8 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class registro {
 
@@ -67,6 +69,14 @@ public class registro {
 		frmBitacora.getContentPane().add(lblNewLabel);
 
 		no_Field = new JTextField();
+		no_Field.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (no_Field.getText().length() >= 10) {
+					e.consume();
+				}
+			}
+		});
 		no_Field.setBounds(142, 44, 86, 20);
 		frmBitacora.getContentPane().add(no_Field);
 		no_Field.setColumns(10);
@@ -91,6 +101,15 @@ public class registro {
 		frmBitacora.getContentPane().add(lblNewLabel_1);
 
 		nom_Field = new JTextField();
+		nom_Field.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+					if (nom_Field.getText().length() >= 100) {
+						e.consume();
+					}
+				}
+		});
 		nom_Field.setColumns(10);
 		nom_Field.setBounds(87, 85, 86, 20);
 		frmBitacora.getContentPane().add(nom_Field);
