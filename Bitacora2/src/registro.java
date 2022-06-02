@@ -13,10 +13,10 @@ import java.awt.event.KeyEvent;
 public class registro {
 
 	private JFrame frmBitacora;
-	private JTextField no_Field;
-	private JTextField nom_Field;
-	private JTextField entrada_Field;
-	private JTextField salida_Field;
+	private JTextField txt_no;
+	private JTextField txt_nom;
+	private JTextField txt_entrada;
+	private JTextField txt_salida;
 
 	/**
 	 * Launch the application.
@@ -57,7 +57,11 @@ public class registro {
 		btnConsultar.setBackground(new Color(255, 255, 255));
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Hola may");
+				Variables.ncon = txt_no.getText();
+				Variables.nom = txt_no.getText();
+				Variables.hrs = txt_no.getText();
+				Variables.hre = txt_no.getText();
+				Variables.fecha = txt_no.getText();
 			}
 		});
 		btnConsultar.setBounds(29, 234, 100, 23);
@@ -68,18 +72,18 @@ public class registro {
 		lblNewLabel.setBounds(24, 46, 124, 14);
 		frmBitacora.getContentPane().add(lblNewLabel);
 
-		no_Field = new JTextField();
-		no_Field.addKeyListener(new KeyAdapter() {
+		txt_no = new JTextField();
+		txt_no.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				if (no_Field.getText().length() >= 10) {
+				if (txt_no.getText().length() >= 10) {
 					e.consume();
 				}
 			}
 		});
-		no_Field.setBounds(142, 44, 86, 20);
-		frmBitacora.getContentPane().add(no_Field);
-		no_Field.setColumns(10);
+		txt_no.setBounds(142, 44, 86, 20);
+		frmBitacora.getContentPane().add(txt_no);
+		txt_no.setColumns(10);
 
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.setForeground(Color.BLACK);
@@ -100,38 +104,38 @@ public class registro {
 		lblNewLabel_1.setBounds(24, 87, 61, 14);
 		frmBitacora.getContentPane().add(lblNewLabel_1);
 
-		nom_Field = new JTextField();
-		nom_Field.addKeyListener(new KeyAdapter() {
+		txt_nom = new JTextField();
+		txt_nom.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				
-					if (nom_Field.getText().length() >= 100) {
-						e.consume();
-					}
+
+				if (txt_nom.getText().length() >= 100) {
+					e.consume();
 				}
+			}
 		});
-		nom_Field.setColumns(10);
-		nom_Field.setBounds(87, 85, 86, 20);
-		frmBitacora.getContentPane().add(nom_Field);
+		txt_nom.setColumns(10);
+		txt_nom.setBounds(87, 85, 86, 20);
+		frmBitacora.getContentPane().add(txt_nom);
 
-		JLabel lblNewLabel_2 = new JLabel("Hora de entrada :");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_2.setBounds(24, 127, 105, 14);
-		frmBitacora.getContentPane().add(lblNewLabel_2);
+		JLabel txt = new JLabel("Hora de entrada :");
+		txt.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txt.setBounds(24, 127, 105, 14);
+		frmBitacora.getContentPane().add(txt);
 
-		entrada_Field = new JTextField();
-		entrada_Field.setColumns(10);
-		entrada_Field.setBounds(127, 125, 86, 20);
-		frmBitacora.getContentPane().add(entrada_Field);
+		txt_entrada = new JTextField();
+		txt_entrada.setColumns(10);
+		txt_entrada.setBounds(127, 125, 86, 20);
+		frmBitacora.getContentPane().add(txt_entrada);
 
 		JLabel lblNewLabel_2_1 = new JLabel("Hora de salida:");
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_2_1.setBounds(24, 158, 89, 14);
 		frmBitacora.getContentPane().add(lblNewLabel_2_1);
 
-		salida_Field = new JTextField();
-		salida_Field.setColumns(10);
-		salida_Field.setBounds(127, 156, 86, 20);
-		frmBitacora.getContentPane().add(salida_Field);
+		txt_salida = new JTextField();
+		txt_salida.setColumns(10);
+		txt_salida.setBounds(127, 156, 86, 20);
+		frmBitacora.getContentPane().add(txt_salida);
 	}
 }
