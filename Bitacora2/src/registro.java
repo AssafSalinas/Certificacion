@@ -18,6 +18,8 @@ public class registro {
 	private JTextField txt_entrada;
 	private JTextField txt_salida;
 	private JTextField txt_fecha;
+	DataRegistro conexion = new DataRegistro();
+	Variables var = new Variables();
 
 	/**
 	 * Launch the application.
@@ -58,11 +60,7 @@ public class registro {
 		btnConsultar.setBackground(new Color(255, 255, 255));
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Variables.ncon = txt_no.getText();
-				Variables.nom = txt_nom.getText();
-				Variables.hrs = txt_salida.getText();
-				Variables.hre = txt_entrada.getText();
-				Variables.fecha = txt_fecha.getText();
+
 			}
 		});
 		btnConsultar.setBounds(29, 234, 100, 23);
@@ -87,17 +85,28 @@ public class registro {
 		txt_no.setColumns(10);
 
 		JButton btnRegistrar = new JButton("Registrar");
+		btnRegistrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Variables.ncon = txt_no.getText();
+				Variables.nom = txt_nom.getText();
+				Variables.hrs = txt_salida.getText();
+				Variables.hre = txt_entrada.getText();
+				Variables.fecha = txt_fecha.getText();
+				conexion.insertarRegistro();
+				Limpiar();
+			}
+		});
 		btnRegistrar.setForeground(Color.BLACK);
 		btnRegistrar.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 14));
 		btnRegistrar.setBackground(new Color(255, 255, 255));
-		btnRegistrar.setBounds(172, 234, 89, 23);
+		btnRegistrar.setBounds(139, 234, 89, 23);
 		frmBitacora.getContentPane().add(btnRegistrar);
 
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.setForeground(Color.BLACK);
 		btnSalir.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 14));
 		btnSalir.setBackground(new Color(255, 255, 255));
-		btnSalir.setBounds(299, 234, 89, 23);
+		btnSalir.setBounds(238, 234, 89, 23);
 		frmBitacora.getContentPane().add(btnSalir);
 
 		JLabel lblNewLabel_1 = new JLabel("Nombre :");
@@ -138,15 +147,35 @@ public class registro {
 		txt_salida.setColumns(10);
 		txt_salida.setBounds(127, 156, 86, 20);
 		frmBitacora.getContentPane().add(txt_salida);
-		
+
 		JLabel lblFecha = new JLabel("Fecha:");
 		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblFecha.setBounds(34, 189, 61, 14);
 		frmBitacora.getContentPane().add(lblFecha);
-		
+
 		txt_fecha = new JTextField();
 		txt_fecha.setColumns(10);
 		txt_fecha.setBounds(87, 187, 86, 20);
 		frmBitacora.getContentPane().add(txt_fecha);
+
+		JButton btnEliminar = new JButton("Eliminar ");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				conexion.eliminarRegistro();
+			}
+		});
+		btnEliminar.setForeground(Color.BLACK);
+		btnEliminar.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 14));
+		btnEliminar.setBackground(Color.WHITE);
+		btnEliminar.setBounds(50, 268, 89, 23);
+		frmBitacora.getContentPane().add(btnEliminar);
+	}
+
+	public void Limpiar() {
+		txt_no.setText("");
+		txt_nom.setText("");
+		txt_entrada.setText("");
+		txt_salida.setText("");
+		txt_fecha.setText("");
 	}
 }
