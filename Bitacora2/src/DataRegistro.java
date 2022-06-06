@@ -46,6 +46,9 @@ public class DataRegistro {
 			pstm = cn.prepareStatement(query);
 			pstm.setString(2, Variables.ncon);
 			pstm.setString(3, Variables.nom);
+			pstm.setString(4, Variables.hre);
+			pstm.setString(5, Variables.hrs);
+			pstm.setString(6, Variables.fecha);
 			pstm.executeUpdate(query);
 		} catch (SQLException e) {
 			System.out.println("Conexion fallida");

@@ -17,6 +17,7 @@ public class registro {
 	private JTextField txt_nom;
 	private JTextField txt_entrada;
 	private JTextField txt_salida;
+	private JTextField txt_fecha;
 
 	/**
 	 * Launch the application.
@@ -58,10 +59,10 @@ public class registro {
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Variables.ncon = txt_no.getText();
-				Variables.nom = txt_no.getText();
-				Variables.hrs = txt_no.getText();
-				Variables.hre = txt_no.getText();
-				Variables.fecha = txt_no.getText();
+				Variables.nom = txt_nom.getText();
+				Variables.hrs = txt_salida.getText();
+				Variables.hre = txt_entrada.getText();
+				Variables.fecha = txt_fecha.getText();
 			}
 		});
 		btnConsultar.setBounds(29, 234, 100, 23);
@@ -137,5 +138,15 @@ public class registro {
 		txt_salida.setColumns(10);
 		txt_salida.setBounds(127, 156, 86, 20);
 		frmBitacora.getContentPane().add(txt_salida);
+		
+		JLabel lblFecha = new JLabel("Fecha:");
+		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblFecha.setBounds(34, 189, 61, 14);
+		frmBitacora.getContentPane().add(lblFecha);
+		
+		txt_fecha = new JTextField();
+		txt_fecha.setColumns(10);
+		txt_fecha.setBounds(87, 187, 86, 20);
+		frmBitacora.getContentPane().add(txt_fecha);
 	}
 }
